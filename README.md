@@ -39,7 +39,7 @@ $ pip3 install -r requirements.txt
 ## 3-Fonctionnement:
 ***
 
-* détails à venir.
+* détails à venir d'ici peu
 
 
 ***
