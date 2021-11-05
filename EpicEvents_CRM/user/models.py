@@ -1,5 +1,5 @@
 from django.db import models
-from django.db.models.base import Model
+
 
 # Create your models here.
 class Team(models.Model):
@@ -18,7 +18,7 @@ class User(models.Model):
     last_name = models.CharField(max_length=25)
     email = models.EmailField(max_length=100)
     password = models.CharField(max_length=50)
-    #role = models.ForeignKey(to=Team)
+    role = models.ForeignKey(to=Team,on_delete=models.CASCADE,null=True )
     
     def __str__(self):
         return f"{self.last_name}, {self.first_name}"
