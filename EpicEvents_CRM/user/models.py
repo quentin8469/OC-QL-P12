@@ -18,4 +18,11 @@ class User(models.Model):
     last_name = models.CharField(max_length=25)
     email = models.EmailField(max_length=100)
     password = models.CharField(max_length=50)
-    role = models.ForeignKey(to=Team)
+    #role = models.ForeignKey(to=Team)
+    
+    def __str__(self):
+        return f"{self.last_name}, {self.first_name}"
+    
+    class Meta:
+        verbose_name = 'User'
+        verbose_name_plural = 'Users'
