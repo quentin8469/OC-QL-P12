@@ -1,4 +1,5 @@
 from django.db import models
+from user.models import User
 
 # Create your models here.
 class Client(models.Model):
@@ -11,7 +12,7 @@ class Client(models.Model):
     company_name = models.CharField(max_length=250)
     date_create = models.DateTimeField(auto_now_add=True)
     date_update = models.DateTimeField(auto_now=True)
-    #sales_contact = models.ForeignKey(to=,on_delete=,null=)
+    sales_contact = models.ForeignKey(to=User,on_delete=models.CASCADE,null=True)
     
     def __str__(self):
         return f"{self.company_name}, {self.last_name}, {self.first_name}"
