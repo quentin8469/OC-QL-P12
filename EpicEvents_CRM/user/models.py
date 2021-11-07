@@ -41,10 +41,11 @@ class TeamUser(models.Model):
     role = models.CharField(max_length=50, choices=roles_choices)
     
     def __str__(self):
-        return f"{self.last_name}, {self.first_name}, {self.role}"
+        return f"{self.user.last_name}, {self.user.first_name}, {self.role}"
     
     class Meta:
-        verbose_name = 'User'
-        verbose_name_plural = 'Users'
+        verbose_name = 'Team User'
+        verbose_name_plural = 'Teams Users'
+        ordering = ['role']
         
     
