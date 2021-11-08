@@ -14,5 +14,5 @@ from .models import TeamUser
 @admin.register(TeamUser)
 class UserAdmin(admin.ModelAdmin):
     """"""
-    #ordering = ['role']
-    list_display = ('first_name', 'last_name', 'role', )
+    ordering = ['role']
+    list_display = ('__str__', 'role', )
