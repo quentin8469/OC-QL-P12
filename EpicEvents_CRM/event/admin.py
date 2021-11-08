@@ -5,5 +5,5 @@ from .models import Event
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
     """"""
-    list_display = ('client', 'even_date', 'support_contact',)
+    list_display = ('client', 'even_date', 'support_contact','event_status')
     list_filter = ('client', 'even_date',)
