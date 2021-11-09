@@ -17,7 +17,7 @@ class Client(models.Model):
     sales_contact = models.ForeignKey(to=settings.AUTH_USER_MODEL,on_delete=models.CASCADE,null=True)
     
     def __str__(self):
-        return f"{self.company_name}, {self.last_name}, {self.first_name}"
+        return f"{self.company_name}"
     
     class Meta:
         verbose_name = 'Client'
