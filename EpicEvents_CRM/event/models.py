@@ -24,7 +24,7 @@ class Event(models.Model):
     notes = models.TextField()
     
     def __str__(self):
-        return f"{self.client}, {self.support_contact}, {self.date_created}"
+        return f"{self.client}"
     
     class Meta:
         verbose_name = 'Event'
