@@ -7,6 +7,8 @@ from client.models import Client
 class EventStatus(models.Model):
     """"""
     status = models.CharField(max_length=50)
+    def __str__(self):
+        return f"{self.status}"
 
 
 class Event(models.Model):
