@@ -1,6 +1,10 @@
 from rest_framework import viewsets, permissions
+from django.shortcuts import get_object_or_404
+
 from .serializers import EventSerializer
 from .models import Event
+from client.models import Client
+from contract.models import Contract
 
 
 # Create your views here.
@@ -13,4 +17,5 @@ class EventViewset(viewsets.ModelViewSet):
     #queryset = Event.objects.all()
     
     def get_queryset(self):
-        return Event.objects.all()
+        client = get_object_or_404(Client, pk=self.kwargs['client_id'])
+        return Event.objects.filter(client=client)
