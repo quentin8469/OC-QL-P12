@@ -15,7 +15,7 @@ class TeamUserForm(forms.ModelForm):
 class TeamUserAdmin(admin.ModelAdmin):
     """"""
     #ordering = ['role']
-    list_display = ('__str__', 'id' )
+    list_display = ('__str__','role', 'id' )
     form = TeamUserForm
 
 
