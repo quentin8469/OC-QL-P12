@@ -18,5 +18,5 @@ class TeamUserAdmin(admin.ModelAdmin):
     list_display = ('__str__', 'id' )
     form = TeamUserForm
 
-#admin.site.register(UserAdmin)
+
 admin.site.register(Team)
