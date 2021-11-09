@@ -1,11 +1,12 @@
 from django.db import models
-from user.models import TeamUser
+from django.conf import settings
+
 from client.models import Client
 
 # Create your models here.
 class EventStatus(models.Model):
     """"""
-    status = models.TextField()
+    status = models.CharField(max_length=50)
 
 
 class Event(models.Model):
@@ -14,7 +15,7 @@ class Event(models.Model):
     client = models.ForeignKey(to=Client,on_delete=models.CASCADE,null=True)
     date_created = models.DateTimeField(auto_now_add=True)
     date_update = models.DateTimeField(auto_now=True)
-    support_contact = models.ForeignKey(to=TeamUser,on_delete=models.CASCADE,null=True)
+    support_contact = models.ForeignKey(to=settings.AUTH_USER_MODEL,on_delete=models.CASCADE,null=True)
     event_status = models.ForeignKey(to=EventStatus,on_delete=models.CASCADE,null=True)
     attendees = models.IntegerField()
     even_date = models.DateTimeField()
