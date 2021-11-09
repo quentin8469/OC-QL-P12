@@ -11,6 +11,9 @@ class Team(models.Model):
                      ('support', 'Support')]
     
     role = models.CharField(max_length=50, choices=roles_choices)
+    
+    def __str__(self):
+        return f"{self.role}"
 
 
 class TeamUser(AbstractUser):

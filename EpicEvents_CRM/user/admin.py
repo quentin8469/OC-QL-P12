@@ -1,12 +1,14 @@
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin
+from django import forms
 
 from .models import TeamUser, Team
 
 
 # Register your models here.
-
-admin.site.register(UserAdmin, Team)
+class TeamUserForm(forms.ModelForm):
+    """ change admin interface"""
+    class Meta:
+        fields = ('first_name', 'last_name', 'email', 'password', 'role', )
 
 
 @admin.register(TeamUser)
@@ -14,4 +16,7 @@ class TeamUserAdmin(admin.ModelAdmin):
     """"""
     #ordering = ['role']
     list_display = ('__str__', 'id' )
+    form = TeamUserForm
 
+#admin.site.register(UserAdmin)
+admin.site.register(Team)
