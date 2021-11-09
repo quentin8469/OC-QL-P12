@@ -14,8 +14,8 @@ class TeamUserForm(forms.ModelForm):
 @admin.register(TeamUser)
 class TeamUserAdmin(admin.ModelAdmin):
     """"""
-    #ordering = ['role']
-    list_display = ('__str__','role', 'id' )
+    ordering = ['role']
+    list_display = ('first_name', 'last_name', 'email', 'role', 'id' )
     form = TeamUserForm
 
 
