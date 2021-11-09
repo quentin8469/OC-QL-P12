@@ -20,6 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', include('user.urls')),
     path('client/', include('client.urls')),
-    #path('client/<int:client_id>/contract/', include('contract.urls')),
-    #path('client/<int:client_id>/contract/<int:contract_id>/event', include('event.urls')),
+    path('client/<int:client_id>/contract/', include('contract.urls')),
+    path('client/<int:client_id>/event/', include('event.urls')),
 ]
