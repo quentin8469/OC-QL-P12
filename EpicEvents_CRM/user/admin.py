@@ -8,7 +8,7 @@ from .models import TeamUser, Team
 class TeamUserForm(forms.ModelForm):
     """ change admin interface"""
     class Meta:
-        fields = ('username','first_name', 'last_name', 'email', 'password', 'role', 'is_staff' )
+        fields = ('username','first_name', 'last_name', 'email', 'password', 'role', 'is_staff', 'is_superuser' )
         
     def save(self, commit=True):
         # Save the provided password in hashed format
