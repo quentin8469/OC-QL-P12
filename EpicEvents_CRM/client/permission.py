@@ -16,7 +16,7 @@ class ClientPermission(permissions.BasePermission):
     def has_object_permission(self, request, view, obj):
         if request.method == 'GET':
             return request.user
-        elif request.method in ['PUT', 'PATCH','DELETE']:
+        elif request.method in ['PUT', 'PATCH']:
             return request.user == obj.sales_contact 
         else:
             return False
