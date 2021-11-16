@@ -3,6 +3,7 @@ from django.shortcuts import get_object_or_404
 from .serializers import ContractSerializer
 from .models import Contract
 from client.models import Client
+from .permission import ContractPermission
 
 
 # Create your views here.
@@ -11,10 +12,18 @@ class ContractViewset(viewsets.ModelViewSet):
     """"""
     
     serializer_class = ContractSerializer
-    #permission_classes = [permissions.IsAuthenticated,]
+    permission_classes = [permissions.IsAuthenticated, ContractPermission]
     #queryset = Contract.objects.all()
     
     def get_queryset(self):
+        user_team = self.request.user.role.role
+        if user_team == 'sales':
+            client = get_object_or_404(Client, pk=self.kwargs['client_id'])
+            return client.contract_set.all().filter(sales_contact= self.request.user)
+        else:
+            return Contract.objects.all()
+    
+    def perform_create(self, serializer):
         client = get_object_or_404(Client, pk=self.kwargs['client_id'])
+        serializer.save(sales_contact=self.request.user, client=client)
         
-        return Contract.objects.filter(client=client )
