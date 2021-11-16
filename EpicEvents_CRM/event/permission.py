@@ -16,7 +16,8 @@ class EventPermission(permissions.BasePermission):
     def has_object_permission(self, request, view, obj):
         if request.method == 'GET':
             return request.user
-        elif request.method in ['PUT', 'PATCH','DELETE']:
-            return request.user == obj.support_contact
+        elif request.method in ['PUT', 'PATCH']:
+            if obj.event_status_id == 1:
+                return request.user == obj.support_contact
         else:
             return False
