@@ -31,15 +31,17 @@ $ pip3 install -r requirements.txt
 
 **Lancement du serveur Django** :
 
-* Se rendre dans le repertoire contenant le fichier python ' manage.py ' ( Epic_Even )
+* Se rendre dans le repertoire contenant le fichier python ' manage.py ' ( EpicEvents_CRM )
 * Puis exécuter python manage.py runserver
-* La page sera accessible à l'URL suivante:  ?????
+* La page sera accessible à l'URL suivante:  http://127.0.0.1:8000/admin/
 
 
 ## 3-Fonctionnement:
 ***
 
-* détails à venir d'ici peu
+* Se referer à la documentation POSTMAN pour efectuer les tests.
+* lien: https://documenter.getpostman.com/view/16984358/UVCB9Pg5
+
 
 
 ***
