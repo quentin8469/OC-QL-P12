@@ -7,9 +7,11 @@ from .serializers import EventSerializer
 from .models import Event
 from client.models import Client
 from contract.models import Contract
+import logging
 
 
 # Create your views here.
+logger = logging.getLogger(__name__)
 
 class EventViewset(viewsets.ModelViewSet):
     """"""
