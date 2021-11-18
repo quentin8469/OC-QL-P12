@@ -4,9 +4,10 @@ from .serializers import ContractSerializer
 from .models import Contract
 from client.models import Client
 from .permission import ContractPermission
-
+import logging
 
 # Create your views here.
+logger = logging.getLogger(__name__)
 
 class ContractViewset(viewsets.ModelViewSet):
     """"""
