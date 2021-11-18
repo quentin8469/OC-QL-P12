@@ -3,9 +3,12 @@ from .serializers import ClientSerializer
 from .models import Client
 from event.models import Event
 from .permission import ClientPermission
+import logging
 
 
 # Create your views here.
+logger = logging.getLogger(__name__)
+
 
 class ClientViewset(viewsets.ModelViewSet):
     """"""
