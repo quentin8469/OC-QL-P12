@@ -23,9 +23,22 @@ class EventViewset(viewsets.ModelViewSet):
     def get_queryset(self):
         user_team = self.request.user.role.role 
         if user_team == 'support':
-            return Event.objects.filter(support_contact=self.request.user)
+            queryset = Event.objects.filter(support_contact=self.request.user)
         elif user_team == 'sales':
             client = get_object_or_404(Client, pk=self.kwargs['client_id'])
-            return client.event_set.all()
+            queryset = client.event_set.all()
         else:
             return Event.objects.all()
+        
+        client_name = self.request.query_params.get('client_name')
+        client_email = self.request.query_params.get('email')
+        event_date = self.request.query_params.get('date')
+        
+        if client_name is not None:
+            queryset = queryset.filter(client__last_name=client_name)
+        if client_email is not None:
+            queryset = queryset.filter(client__email=client_email)
+        if event_date is not None:
+            queryset = queryset.filter(even_date=event_date)
+        
+        return queryset
